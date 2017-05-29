@@ -51,6 +51,18 @@
     </div>
   </div>
 
+  <h3>Filmes</h3>
+
+  <div class="field">
+    <%= hidden_field_tag "cinema[filme_ids][]", nil %>
+    <% Filme.all.each do |filme| %>
+      <div class="select" >
+        <%= check_box_tag "cinema[filme_ids][]", filme.id, @cinema.filme_ids.include?(filme.id), id: dom_id(filme) %>
+        <%= label_tag dom_id(filme), filme.nome %>
+        <% end %>
+      <div>
+  </div>
+
   <div class="actions">
     <%= f.submit "Cadastrar Cinema", class: "button" %>
     <%= link_to 'Cancelar', cinemas_path, class: "button" %>

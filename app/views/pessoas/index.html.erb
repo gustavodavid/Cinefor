@@ -1,29 +1,33 @@
-<p id="notice"><%= notice %></p>
+<%= render partial: "/partials/tab_menu" %>
+<div class= "basic-grey" >
+  <p id="notice"><%= notice %></p>
 
-<h1>Pessoas</h1>
+  <h1><%= "#{t('messages.listing')} #{@pessoas.model_name.human(count: @pessoas.count) }" %></h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Url foto</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @pessoas.each do |pessoa| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= pessoa.nome %></td>
-        <td><%= pessoa.url_foto %></td>
-        <td><%= link_to 'Show', pessoa %></td>
-        <td><%= link_to 'Edit', edit_pessoa_path(pessoa) %></td>
-        <td><%= link_to 'Destroy', pessoa, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th><%= @pessoas.human_attribute_name("nome") %></th>
+        <th><%= @pessoas.human_attribute_name("url_foto") %></th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @pessoas.each do |pessoa| %>
+        <tr>
+          <td><%= pessoa.nome %></td>
+          <td><%= pessoa.url_foto %></td>
+          <td><%= link_to t('buttons.show'), pessoa %></td>
+          <td><%= link_to t('buttons.edit'), edit_pessoa_path(pessoa) %></td>
+          <td><%= link_to t('buttons.destroy'), pessoa, method: :delete, data: { confirm: t('messages.confirm') } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Pessoa', new_pessoa_path %>
+  <br>
+
+  <%= link_to t('buttons.new'), new_cinema_path %>
+</div>

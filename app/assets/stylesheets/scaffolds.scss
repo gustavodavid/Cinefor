@@ -1,7 +1,7 @@
 .basic-grey {
     margin-left:auto;
     margin-right:auto;
-    max-width: 500px;
+    max-width: auto;
     background: #F7F7F7;
     padding: 25px 15px 25px 10px;
     font: 12px Georgia, "Times New Roman", Times, serif;
@@ -9,6 +9,34 @@
     text-shadow: 1px 1px 1px #FFF;
     border:1px solid #E4E4E4;
 }
+#menu ul {
+    padding:0px;
+    margin:0px;
+    list-style:none;
+}
+
+#menu ul li {
+  height: 80%;
+  display: inline;
+}
+
+#menu ul li a {
+    padding: 2px 10px;
+    display: inline-block;
+
+    /* visual do link */
+    color: #333;
+    text-decoration: none;
+
+    transition: background-color 1s , color 1s , border-bottom 1s;
+    transition-timing-function: ease-out;
+}
+
+#menu ul li a:hover {
+    background-color:#D6D6D6;
+    color: #6D6D6D;
+}
+
 .basic-grey h1 {
     font-size: 25px;
     padding: 0px 0px 10px 40px;
@@ -101,4 +129,8 @@
 
 .basic-grey .button:hover {
     background: #CF7A7A
+}
+
+table {
+  width: 100%;
 }

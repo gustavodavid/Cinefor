@@ -1,27 +1,31 @@
-<p id="notice"><%= notice %></p>
+<%= render partial: "/partials/tab_menu" %>
+<div class= "basic-grey" >
+  <p id="notice"><%= notice %></p>
 
-<h1>Horarios</h1>
+  <h1><%= "#{t('messages.listing')} #{@horarios.model_name.human(count: @horarios.count) }" %></h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Horario</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @horarios.each do |horario| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= horario.horario %></td>
-        <td><%= link_to 'Show', horario %></td>
-        <td><%= link_to 'Edit', edit_horario_path(horario) %></td>
-        <td><%= link_to 'Destroy', horario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th> <%= @horarios.human_attribute_name("horario") %> </th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @horarios.each do |horario| %>
+        <tr>
+          <td><%= horario.horario.to_formatted_s(:time) %></td>
+          <td><%= link_to t('buttons.show'), horario %></td>
+          <td><%= link_to t('buttons.edit'), edit_horario_path(horario) %></td>
+          <td><%= link_to t('buttons.destroy'), horario, method: :delete, data: { confirm: t('messages.confirm') } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Horario', new_horario_path %>
+  <br>
+
+  <%= link_to t('buttons.new'), new_cinema_path %>
+</div>

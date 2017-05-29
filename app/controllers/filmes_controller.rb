@@ -15,10 +15,12 @@ class FilmesController < ApplicationController
   # GET /filmes/new
   def new
     @filme = Filme.new
+    @select_pessoas = select_pessoas
   end
 
   # GET /filmes/1/edit
   def edit
+    @select_pessoas = select_pessoas
   end
 
   # POST /filmes
@@ -69,6 +71,10 @@ class FilmesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def filme_params
-      params.require(:filme).permit(:nome, :imdb, :sinopse, :data_lancamento, :classificacao, :hora, :minuto, :trailer, :poster)
+      params.require(:filme).permit(:nome, :imdb, :sinopse, :data_lancamento, :classificacao, :hora, :minuto, :trailer, :poster, {:pessoa_ids => []}, {:genero_ids => []})
+    end
+
+    def select_pessoas
+      Pessoa.all
     end
 end

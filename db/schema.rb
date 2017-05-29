@@ -89,7 +89,6 @@ ActiveRecord::Schema.define(version: 20170529160427) do
   end
 
   create_table "salas", force: :cascade do |t|
-    t.string   "nome"
     t.string   "tipo"
     t.string   "lingua"
     t.integer  "cinema_id"

@@ -1,0 +1,54 @@
+"pt-BR":
+  activerecord:
+    models:
+      horario:
+        one: Horário
+        other: Horários
+      cinema:
+        one: Cinema
+        other: Cinemas
+      filme:
+        one: Filme
+        other: Filmes
+      genero:
+        one: Gênero
+        other: Gêneros
+      sala:
+        one: Sala
+        other: Salas
+      pessoa:
+        one: Pessoa
+        other: Pessoas
+    attributes:
+      horario:
+        horario: "Horário"
+      cinema:
+        nome: "Nome"
+        latitude: "Latitude"
+        longitude: "Longitude"
+        endereco: "Endereço"
+        bairro: "Bairro"
+        numero: "Número"
+        descricao: "Descrição"
+      filme:
+        nome: "Nome"
+        imdb: "Nota do Imdb"
+        sinopse: "Sinopse"
+        data_lancamento: "Data de Lançamento"
+        classificacao: "Classificação"
+        hora: "Hora"
+        minuto: "Minuto"
+        trailer: "Trailer"
+        poster: "Pôster"
+      genero:
+        nome: "Nome"
+      sala:
+        tipo: "Tipo"
+        lingua: "Linguagem"
+        cinema: "Cinema"
+        filme: "Filme"
+        cinema_id: "Cinema"
+        filme_id: "Filme"
+      pessoa:
+        nome: "Nome"
+        url_foto: "Url da foto"

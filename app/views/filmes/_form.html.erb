@@ -76,7 +76,32 @@
     <%= f.text_field :poster %>
   </div>
 
+  <h3>Pessoas</h3>
+
+  <div class="field">
+    <%= hidden_field_tag "filme[pessoa_ids][]", nil %>
+    <% Pessoa.all.each do |pessoa| %>
+      <div class="select" >
+        <%= check_box_tag "filme[pessoa_ids][]", pessoa.id, @filme.pessoa_ids.include?(pessoa.id), id: dom_id(pessoa) %>
+        <%= label_tag dom_id(pessoa), pessoa.nome %>
+        <% end %>
+      <div>
+  </div>
+
+  <h3>Gêneros</h3>
+
+  <div class="field">
+    <%= hidden_field_tag "filme[genero_ids][]", nil %>
+    <% Genero.all.each do |genero| %>
+      <div class="select" >
+        <%= check_box_tag "filme[genero_ids][]", genero.id, @filme.genero_ids.include?(genero.id), id: dom_id(genero) %>
+        <%= label_tag dom_id(genero), genero.nome %>
+        <% end %>
+      <div>
+  </div>
+
   <div class="actions">
+    <br><br>
     <%= f.submit "Cadastrar Filme", class: "button" %>
     <%= link_to 'Cancelar', filmes_path, class: "button" %>
   </div>

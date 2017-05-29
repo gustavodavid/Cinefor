@@ -106,7 +106,150 @@ Genero.create(
 # Criação da base de Pessoas
 Pessoa.create(
 [
-
+  {
+    nome: 'Chris Pratt',
+    url_foto: 'https://images-na.ssl-images-amazon.com/images/M/MV5BNzg3MTgwOTgzMV5BMl5BanBnXkFtZTgwODIxMTUwMjE@._V1_UY1200_CR85,0,630,1200_AL_.jpg'
+  },
+  {
+    nome: 'Vin Diesel',
+    url_foto: 'https://images-na.ssl-images-amazon.com/images/M/MV5BMjExNzA4MDYxN15BMl5BanBnXkFtZTcwOTI1MDAxOQ@@._V1_UY317_CR7,0,214,317_AL_.jpg'
+  },
+  {
+    nome: 'Zoe Saldana',
+    url_foto: 'https://images-na.ssl-images-amazon.com/images/M/MV5BMjA4NDk1NTA1OV5BMl5BanBnXkFtZTcwMTIzMjQ4Ng@@._V1_UY317_CR8,0,214,317_AL_.jpg'
+  },
+  {
+    nome: 'Dave Batista',
+    url_foto: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Dave_Batista_-_Guardians_of_the_Galaxy_premiere_-_July_2014_%28cropped%29.jpg/220px-Dave_Batista_-_Guardians_of_the_Galaxy_premiere_-_July_2014_%28cropped%29.jpg'
+  },
+  {
+    nome: 'Sylvester Stallone',
+    url_foto: 'https://upload.wikimedia.org/wikipedia/commons/a/a4/Sylvester_Stallone_2012.jpg'
+  },
+  {
+    nome: 'Dwayne Johnson',
+    url_foto: 'https://upload.wikimedia.org/wikipedia/commons/6/6f/Dwayne_Johnson_Hercules_2014_%28cropped%29.jpg'
+  },
+  {
+    nome: 'Jason Statham',
+    url_foto: 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTkxMzk2MDkwOV5BMl5BanBnXkFtZTcwMDAxODQwMg@@._V1_UX214_CR0,0,214,317_AL_.jpg'
+  },
+  {
+    nome: 'Michelle Rodriguez',
+    url_foto: 'https://lh4.googleusercontent.com/-WAh6vNikXe4/AAAAAAAAAAI/AAAAAAAABaI/56Byd0pcw0Q/s0-c-k-no-ns/photo.jpg'
+  },
+  {
+    nome: 'Scott Eastwood',
+    url_foto: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Scott_Eastwood_52nd_Annual_Publicists_Awards_-_Feb_2015_%28cropped%29.jpg/220px-Scott_Eastwood_52nd_Annual_Publicists_Awards_-_Feb_2015_%28cropped%29.jpg'
+  },
+  {
+    nome: 'Tyrese Gibson',
+    url_foto: 'https://upload.wikimedia.org/wikipedia/commons/2/2d/TyreseGibsonDec08.jpg'
+  },
+  {
+    nome: 'Kurt Russell',
+    url_foto: 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTk3MjkxNzQwMV5BMl5BanBnXkFtZTYwNDk4ODM1._V1_UX214_CR0,0,214,317_AL_.jpg'
+  },
+  {
+    nome: 'Ludacris',
+    url_foto: 'https://upload.wikimedia.org/wikipedia/commons/c/c2/Ludacris_2008.jpg'
+  },
+  {
+    nome: 'Cacau Protásio',
+    url_foto: 'http://br.web.img2.acsta.net/c_162_216/pictures/15/03/03/19/11/589768.jpg'
+  },
+  {
+    nome: 'Lyv Ziese',
+    url_foto: 'http://br.web.img3.acsta.net/c_162_216/pictures/16/03/23/22/25/300069.jpg'
+  },
+  {
+    nome: 'Mariana Xavier',
+    url_foto: 'http://br.web.img3.acsta.net/c_162_216/pictures/210/123/21012395_20130613155552926.jpg'
+  },
+  {
+    nome: 'Carolinie Figueiredo',
+    url_foto: 'http://br.web.img2.acsta.net/c_162_216/pictures/17/03/09/19/31/471966.jpg'
+  },
+  {
+    nome: 'Marcos Pasquim',
+    url_foto: 'http://br.web.img3.acsta.net/c_162_216/pictures/210/158/21015874_20130626183225836.jpg'
+  },
+  {
+    nome: 'André Bankoff',
+    url_foto: 'http://br.web.img3.acsta.net/c_162_216/pictures/14/04/03/22/07/305500.jpg'
+  },
+  {
+    nome: 'Juliana Alves',
+    url_foto: 'http://br.web.img3.acsta.net/c_162_216/pictures/14/08/09/22/14/554297.jpg'
+  },
+  {
+    nome: 'Jake Gyllenhaal',
+    url_foto: 'http://br.web.img2.acsta.net/c_162_216/medias/nmedia/18/35/30/16/19623723.jpg'
+  },
+  {
+    nome: 'Ryan Reynolds',
+    url_foto: 'http://br.web.img2.acsta.net/c_162_216/pictures/15/07/28/17/15/280194.jpg'
+  },
+  {
+    nome: 'Rebecca Ferguson',
+    url_foto: 'http://br.web.img3.acsta.net/c_162_216/pictures/15/06/04/11/43/164281.jpg'
+  },
+  {
+    nome: 'Ariyon Bakare',
+    url_foto: 'http://br.web.img3.acsta.net/c_162_216/pictures/16/05/27/16/32/006303.jpg'
+  },
+  {
+    nome: 'Rosario Dawson',
+    url_foto: 'http://br.web.img3.acsta.net/c_162_216/medias/nmedia/18/93/64/16/20269277.jpg'
+  },
+  {
+    nome: 'Katherine Heigl',
+    url_foto: 'http://br.web.img3.acsta.net/c_162_216/pictures/16/06/15/14/42/160437.jpg'
+  },
+  {
+    nome: 'Geoff Stults',
+    url_foto: 'http://br.web.img3.acsta.net/c_162_216/pictures/15/12/02/12/42/096372.jpg'
+  },
+  {
+    nome: 'Sarah Burns',
+    url_foto: 'http://br.web.img3.acsta.net/c_162_216/pictures/15/03/19/15/04/436345.jpg'
+  },
+  {
+    nome: 'Giovanna Antonelli',
+    url_foto: 'http://br.web.img3.acsta.net/c_162_216/pictures/14/08/14/23/57/192300.jpg'
+  },
+  {
+    nome: 'Alec Baldwin',
+    url_foto: 'http://br.web.img3.acsta.net/c_162_216/medias/nmedia/18/35/21/59/19216243.jpg'
+  },
+  {
+    nome: 'Steve Buscemi',
+    url_foto: 'http://br.web.img3.acsta.net/c_162_216/pictures/15/07/14/20/40/493730.jpg'
+  },
+  {
+    nome: 'Jimmy Kimmel',
+    url_foto: 'http://br.web.img2.acsta.net/c_162_216/pictures/210/241/21024188_20130802143108047.jpg'
+  },
+  {
+    nome: 'Lisa Kudrow',
+    url_foto: 'http://br.web.img3.acsta.net/c_162_216/medias/nmedia/18/93/46/17/20258350.jpg'
+  },
+  {
+    nome: 'James McAvoy',
+    url_foto: 'http://br.web.img3.acsta.net/c_162_216/medias/nmedia/18/92/22/36/20187352.jpg'
+  },
+  {
+    nome: 'Anya Taylor-Joy',
+    url_foto: 'http://br.web.img2.acsta.net/c_162_216/pictures/14/12/08/15/32/335377.jpg'
+  },
+  {
+    nome: 'Betty Buckley',
+    url_foto: 'http://br.web.img2.acsta.net/c_162_216/medias/nmedia/18/91/62/49/20155211.jpg'
+  },
+  {
+    nome: 'Haley Lu Richardson',
+    url_foto: 'http://br.web.img3.acsta.net/c_162_216/pictures/14/11/05/20/55/588890.jpg'
+  }
 ]
 )
 

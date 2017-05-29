@@ -14,11 +14,6 @@
   <h1>Sala</h1>
 
   <div class="field">
-    <%= f.label :nome %>
-    <%= f.text_field :nome %>
-  </div>
-
-  <div class="field">
     <%= f.label :tipo %>
     <%= f.text_field :tipo %>
   </div>
@@ -37,6 +32,18 @@
     <%= f.label :filme_id %>
 
     <%= collection_select(:sala, :filme_id, @select_filme, :id, :nome) %>
+  </div>
+
+  <h3>Horários</h3>
+
+  <div class="field">
+    <%= hidden_field_tag "sala[horario_ids][]", nil %>
+    <% Horario.all.each do |horario| %>
+      <div class="select" >
+        <%= check_box_tag "sala[horario_ids][]", horario.id, @sala.horario_ids.include?(horario.id), id: dom_id(horario) %>
+        <%= label_tag dom_id(horario), horario.horario.to_formatted_s(:time) %>
+        <% end %>
+      <div>
   </div>
 
   <div class="actions">

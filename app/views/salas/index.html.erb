@@ -1,35 +1,37 @@
-<p id="notice"><%= notice %></p>
+<%= render partial: "/partials/tab_menu" %>
+<div class= "basic-grey" >
+  <p id="notice"><%= notice %></p>
 
-<h1>Salas</h1>
+  <h1><%= "#{t('messages.listing')} #{@salas.model_name.human(count: @salas.count) }" %></h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Tipo</th>
-      <th>Lingua</th>
-      <th>Cinema</th>
-      <th>Filme</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @salas.each do |sala| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= sala.nome %></td>
-        <td><%= sala.tipo %></td>
-        <td><%= sala.lingua %></td>
-        <td><%= sala.cinema %></td>
-        <td><%= sala.filme %></td>
-        <td><%= link_to 'Show', sala %></td>
-        <td><%= link_to 'Edit', edit_sala_path(sala) %></td>
-        <td><%= link_to 'Destroy', sala, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th><%= @salas.human_attribute_name("tipo") %></th>
+        <th><%= @salas.human_attribute_name("lingua") %></th>
+        <th><%= @salas.human_attribute_name("cinema") %></th>
+        <th><%= @salas.human_attribute_name("filme") %></th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @salas.each do |sala| %>
+        <tr>
+          <td><%= sala.tipo %></td>
+          <td><%= sala.lingua %></td>
+          <td><%= sala.cinema.nome %></td>
+          <td><%= sala.filme.nome %></td>
+          <td><%= link_to t('buttons.show'), sala %></td>
+          <td><%= link_to t('buttons.edit'), edit_sala_path(sala) %></td>
+          <td><%= link_to t('buttons.destroy'), sala, method: :delete, data: { confirm: t('messages.confirm') } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Sala', new_sala_path %>
+  <br>
+
+  <%= link_to t('buttons.new'), new_cinema_path %>
+</div>

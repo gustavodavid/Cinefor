@@ -75,7 +75,7 @@ class SalasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sala_params
-      params.require(:sala).permit(:nome, :tipo, :lingua, :cinema_id, :filme_id)
+      params.require(:sala).permit(:tipo, :lingua, :cinema_id, :filme_id, {:horario_ids => []})
     end
 
     def select_cinema
