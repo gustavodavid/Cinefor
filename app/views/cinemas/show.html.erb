@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @cinema.nome %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @cinema.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @cinema.longitude %>
+</p>
+
+<p>
+  <strong>Endereco:</strong>
+  <%= @cinema.endereco %>
+</p>
+
+<p>
+  <strong>Bairro:</strong>
+  <%= @cinema.bairro %>
+</p>
+
+<p>
+  <strong>Numero:</strong>
+  <%= @cinema.numero %>
+</p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @cinema.descricao %>
+</p>
+
+<%= link_to 'Edit', edit_cinema_path(@cinema) %> |
+<%= link_to 'Back', cinemas_path %>

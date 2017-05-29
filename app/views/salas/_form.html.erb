@@ -1,0 +1,46 @@
+<%= form_for(sala, html: { class: "basic-grey" }) do |f| %>
+  <% if sala.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sala.errors.count, "error") %> prohibited this sala from being saved:</h2>
+
+      <ul>
+      <% sala.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <h1>Sala</h1>
+
+  <div class="field">
+    <%= f.label :nome %>
+    <%= f.text_field :nome %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tipo %>
+    <%= f.text_field :tipo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :lingua %>
+    <%= f.text_field :lingua %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cinema_id %>
+    <%= collection_select(:sala, :cinema_id, @select_cinema, :id, :nome) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :filme_id %>
+
+    <%= collection_select(:sala, :filme_id, @select_filme, :id, :nome) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Cadastrar Sala", class: "button" %>
+    <%= link_to 'Cancelar', salas_path, class: "button" %>
+  </div>
+<% end %>

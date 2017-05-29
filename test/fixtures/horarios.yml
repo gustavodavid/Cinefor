@@ -1,0 +1,7 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  horario: 2017-05-29 12:51:08
+
+two:
+  horario: 2017-05-29 12:51:08

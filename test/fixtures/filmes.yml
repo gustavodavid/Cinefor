@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  imdb: 9.99
+  sinopse: MyText
+  data_lancamento: 2017-05-29
+  classificacao: 1
+  hora: 1
+  minuto: 1
+  trailer: MyString
+  poster: MyString
+
+two:
+  nome: MyString
+  imdb: 9.99
+  sinopse: MyText
+  data_lancamento: 2017-05-29
+  classificacao: 1
+  hora: 1
+  minuto: 1
+  trailer: MyString
+  poster: MyString
