@@ -5,11 +5,22 @@ class CinemasController < ApplicationController
   # GET /cinemas.json
   def index
     @cinemas = Cinema.all
+
+    respond_to do |format|
+      format.html
+      format.json {render json: @cinemas}
+    end
   end
 
   # GET /cinemas/1
   # GET /cinemas/1.json
   def show
+    @cinema = Cinema.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.json {render json: @cinema}
+    end
   end
 
   # GET /cinemas/new

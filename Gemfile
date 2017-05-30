@@ -8,6 +8,8 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.3'
+# ActiveModel::Serializer implementation and Rails hooks
+gem 'active_model_serializers'
 # Repository for collecting Locale data for Ruby on Rails I18n as well as other interesting, Rails related I18n stuff
 gem 'rails-i18n', '~> 5.0.0' # For 5.0.x and 5.1.x
 # Use postgresql as the database for Active Record

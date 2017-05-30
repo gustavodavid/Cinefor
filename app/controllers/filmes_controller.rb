@@ -5,11 +5,22 @@ class FilmesController < ApplicationController
   # GET /filmes.json
   def index
     @filmes = Filme.all
+
+    respond_to do |format|
+      format.html
+      format.json {render json: @filmes}
+    end
   end
 
   # GET /filmes/1
   # GET /filmes/1.json
   def show
+    @filme = Filme.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.json {render json: @filme}
+    end
   end
 
   # GET /filmes/new

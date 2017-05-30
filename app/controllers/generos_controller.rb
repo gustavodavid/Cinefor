@@ -5,11 +5,22 @@ class GenerosController < ApplicationController
   # GET /generos.json
   def index
     @generos = Genero.all
+
+    respond_to do |format|
+      format.html
+      format.json {render json: @generos}
+    end
   end
 
   # GET /generos/1
   # GET /generos/1.json
   def show
+    @genero = Genero.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.json {render json: @genero}
+    end
   end
 
   # GET /generos/new

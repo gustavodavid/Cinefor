@@ -5,13 +5,23 @@ class SalasController < ApplicationController
   # GET /salas.json
   def index
     @salas = Sala.all
+
+    respond_to do |format|
+      format.html
+      format.json {render json: @salas}
+    end
   end
 
   # GET /salas/1
   # GET /salas/1.json
   def show
-    @select_cinema = select_cinema
-    @select_filme = select_filme
+    @sala = Sala.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.json {render json: @sala}
+    end
+
   end
 
   # GET /salas/new
