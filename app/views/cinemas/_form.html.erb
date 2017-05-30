@@ -18,16 +18,18 @@
     <%= f.text_field :nome %>
   </div>
 
-  <div class="field">
-    <%= f.label :latitude %>
+<div class="field">
+
+  <%= f.label :latitude %>
+  <div class="text_field_numerics">
     <%= f.text_field :latitude %>
   </div>
 
-  <div class="field">
-    <%= f.label :longitude %>
+  <%= f.label :longitude %>
+  <div class="text_field_numerics">
     <%= f.text_field :longitude %>
   </div>
-
+</div>
   <div class="field">
     <%= f.label :endereco %>
     <%= f.text_field :endereco %>
@@ -40,7 +42,9 @@
 
   <div class="field">
     <%= f.label :numero %>
-    <%= f.text_field :numero %>
+    <div class="text_field_numerics">
+      <%= f.text_field :numero %>
+    </div>
   </div>
 
   <div class="field">

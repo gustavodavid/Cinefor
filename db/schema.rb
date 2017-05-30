@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 20170529160427) do
 
   create_table "cinemas", force: :cascade do |t|
     t.string   "nome"
-    t.decimal  "latitude"
-    t.decimal  "longitude"
+    t.string   "latitude"
+    t.string   "longitude"
     t.string   "endereco"
     t.string   "bairro"
     t.string   "numero"
@@ -36,12 +36,12 @@ ActiveRecord::Schema.define(version: 20170529160427) do
 
   create_table "filmes", force: :cascade do |t|
     t.string   "nome"
-    t.decimal  "imdb"
+    t.string   "imdb"
     t.text     "sinopse"
     t.date     "data_lancamento"
-    t.integer  "classificacao"
-    t.integer  "hora"
-    t.integer  "minuto"
+    t.string   "classificacao"
+    t.string   "hora"
+    t.string   "minuto"
     t.string   "trailer"
     t.string   "poster"
     t.datetime "created_at",      null: false

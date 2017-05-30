@@ -64,6 +64,13 @@
     color: #888;
 }
 
+.basic-grey div.text_field_numerics>input {
+    width: 8%;
+}
+
+.basic-grey div.text_field_characters>input {
+}
+
 .basic-grey div.time>select {
   background: #FFF image-url('down-arrow.png') no-repeat right;
   background: #FFF image-url('down-arrow.png') no-repeat right;

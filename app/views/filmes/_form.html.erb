@@ -19,11 +19,6 @@
   </div>
 
   <div class="field">
-    <%= f.label :imdb %>
-    <%= f.text_field :imdb %>
-  </div>
-
-  <div class="field">
     <%= f.label :sinopse %>
     <%= f.text_area :sinopse %>
   </div>
@@ -36,45 +31,38 @@
     </div>
   </div>
 
-  <div class="field">
-    <%= f.label :classificacao %>
+<div class="field">
 
-    <div class = "time" >
-      <%= f.number_field :classificacao %>
-    </div>
-
-    <br>
+  <%= f.label :imdb %>
+  <div class="text_field_numerics">
+    <%= f.text_field :imdb %>
   </div>
 
-  <div class="field">
-    <%= f.label :hora %>
-
-    <div class = "time" >
-      <%= f.number_field :hora %>
-    </div>
-
-    <br>
+  <%= f.label :classificacao %>
+  <div class="text_field_numerics">
+    <%= f.text_field :classificacao %>
   </div>
 
-  <div class="field">
-    <%= f.label :minuto %>
-
-    <div class = "time" >
-      <%= f.number_field :minuto %>
-    </div>
-
-    <br>
+  <%= f.label :hora %>
+  <div class="text_field_numerics">
+    <%= f.text_field :hora %>
   </div>
 
-  <div class="field">
-    <%= f.label :trailer %>
+  <%= f.label :minuto %>
+  <div class="text_field_numerics">
+    <%= f.text_field :minuto %>
+  </div>
+
+  <%= f.label :trailer %>
+  <div class="text_field_characters">
     <%= f.text_field :trailer %>
   </div>
 
-  <div class="field">
-    <%= f.label :poster %>
+  <%= f.label :poster %>
+  <div class="text_field_characters">
     <%= f.text_field :poster %>
   </div>
+</div>
 
   <h3>Pessoas</h3>
 
