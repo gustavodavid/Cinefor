@@ -17,8 +17,6 @@ Rails.application.routes.draw do
 
   get 'home/index'
 
-  get '/admins/sign_in', to: redirect('/admins/sign_out')
-
   root 'home#index'
 
   resources :salas
