@@ -8,6 +8,12 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.3'
+# Rails gem of the Bootstrap based admin theme SB Admin 2
+gem 'bootstrap_sb_admin_base_v2'
+# Devise is a flexible authentication solution for Rails based on Warden.
+gem 'devise'
+# Translations for the devise gem
+gem 'devise-i18n'
 # ActiveModel::Serializer implementation and Rails hooks
 gem 'active_model_serializers'
 # Repository for collecting Locale data for Ruby on Rails I18n as well as other interesting, Rails related I18n stuff

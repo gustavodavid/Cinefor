@@ -1,1 +1,79 @@
-<%= render partial: "/partials/tab_menu" %>
+<header>
+
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <ul class="nav navbar-nav">
+          <li class="active"><%= link_to "Home", home_index_path %></li>
+          <li><%= link_to "Filmes", filmes_path %></li>
+          <li><%= link_to "Cinemas", cinemas_path %></li>
+          <li><%= link_to "Salas", salas_path %></li>
+          <li><%= link_to "Pessoas", pessoas_path %></li>
+          <li><%= link_to "Gêneros", generos_path %></li>
+          <li><%= link_to "Horários", horarios_path %></li>
+        </ul>
+      </div>
+  </nav>
+
+</header>
+
+
+<section>
+
+  <div class="container">
+    <div class="panel panel-primary">
+
+      <div class="panel-heading">
+      <!-- Título do painel -->
+        <h3 class="panel-title"><font><font>Software de Gerenciamento Para Aplicativos de Cinema - Cinefor</font></font></h3>
+      </div>
+
+    <div class="panel-body">
+    <!-- Conteúdo do painel -->
+      <font> Conteúdo do painel </font>
+
+      <h3>
+        Esta aplicação Web foi gerada para a cadeira de Engenharia de Software.
+      <br>Todos os dados foram cadastrados manualmente e as fontes foram as seguintes:
+      </h3>
+
+      <ul>
+        <li>
+          Imdb
+        </li>
+        <li>
+          Iguatemi
+        </li>
+        <li>
+          Benfica
+        </li>
+        <li>
+          North Shopping
+        </li>
+        <li>
+          Deo paseo
+        </li>
+      </ul>
+
+      <h3>
+        O escopo desta aplicação Web é totalmente acadêmico.
+      <br>Sendo assim, não existe a intenção, por parte da equipe, desta aplicação ser utilizada de forma comercial ou como ponte para ganho de dinheiro.
+      </h3>
+
+    </div>
+
+  </div>
+   </div>
+
+</section>
+
+<footer>
+  <div class="footer">
+    <div class="container-fluid">
+      <div class="row">
+        <div id="copyright">
+          <span>© 2017 Eagle - Desenvolvimento Web e Mobile</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

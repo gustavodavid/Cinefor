@@ -1,15 +1,4 @@
 <%= form_for(genero, html: { class: "basic-grey" }) do |f| %>
-  <% if genero.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(genero.errors.count, "error") %> prohibited this genero from being saved:</h2>
-
-      <ul>
-      <% genero.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <h1>Gênero</h1>
 
@@ -22,4 +11,16 @@
     <%= f.submit "Cadastrar Gênero", class: "button" %>
     <%= link_to 'Cancelar', generos_path, class: "button" %>
   </div>
+
+  <% if genero.errors.any? %>
+    <div id="error_explanation">
+      <h2>Não foi possível salvar o gênero por um ou mais motivos:</h2>
+
+      <ul>
+      <% genero.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 <% end %>

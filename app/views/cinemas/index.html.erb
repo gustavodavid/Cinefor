@@ -1,42 +1,106 @@
-<%= render partial: "/partials/tab_menu" %>
-<div class= "basic-grey" >
-  <p id="notice"><%= notice %></p>
 
-  <h1><%= "#{t('messages.listing')} #{@cinemas.model_name.human(count: @cinemas.count) }" %></h1>
+<header>
 
-  <table>
-    <thead>
-      <tr>
-        <th> <%= @cinemas.human_attribute_name("nome") %> </th>
-        <th> <%= @cinemas.human_attribute_name("latitude") %> </th>
-        <th> <%= @cinemas.human_attribute_name("longitude") %> </th>
-        <th> <%= @cinemas.human_attribute_name("endereco") %> </th>
-        <th> <%= @cinemas.human_attribute_name("bairro") %> </th>
-        <th> <%= @cinemas.human_attribute_name("numero") %> </th>
-        <th> <%= @cinemas.human_attribute_name("descricao") %> </th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
+  <nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+      <ul class="nav navbar-nav">
+        <li><%= link_to "Home", home_index_path %></li>
+        <li><%= link_to "Filmes", filmes_path %></li>
+        <li class="active"><%= link_to "Cinemas", cinemas_path %></li>
+        <li><%= link_to "Salas", salas_path %></li>
+        <li><%= link_to "Pessoas", pessoas_path %></li>
+        <li><%= link_to "Gêneros", generos_path %></li>
+        <li><%= link_to "Horários", horarios_path %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Sair", destroy_admin_session_path, method: :delete, class: ""%></li>
+      </ul>
+    </div>
+  </nav>
 
-    <tbody>
-      <% @cinemas.each do |cinema| %>
-        <tr>
-          <td><%= cinema.nome %></td>
-          <td><%= cinema.latitude %></td>
-          <td><%= cinema.longitude %></td>
-          <td><%= cinema.endereco %></td>
-          <td><%= cinema.bairro %></td>
-          <td><%= cinema.numero %></td>
-          <td><%= cinema.descricao %></td>
-          <td><%= link_to t('buttons.show'), cinema %></td>
-          <td><%= link_to t('buttons.edit'), edit_cinema_path(cinema) %></td>
-          <td><%= link_to t('buttons.destroy'), cinema, method: :delete, data: { confirm: t('messages.confirm') } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+</header>
 
-  <br>
+<section>
 
-  <%= link_to t('buttons.new'), new_cinema_path %>
-</div>
+  <div class="container">
+    <div class="panel panel-default">
+
+      <div class="panel-heading">
+      <!-- Título do painel -->
+        <h3 class="panel-title">
+          <p>
+            <font>Lista de Cinemas</font>
+            <%= link_to t('buttons.new'), new_cinema_path, class: "btn btn-primary", role: "button", style: "float: right"%>
+          </p>
+        </h3>
+      </div>
+
+      <div class="panel-body">
+      <!-- Conteúdo do painel -->
+
+        <div class="panel panel-default">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>
+                  <font>#</font>
+                </th>
+                <th>
+                  <font>
+                    <%= @cinemas.human_attribute_name("nome") %>
+                  </font>
+                </th>
+                <th>
+                  <font>Exibir</font>
+                </th>
+                <th>
+                  <font>Editar</font>
+                </th>
+                <th>
+                  <font>Excluir</font>
+                </th>
+                <th colspan="5"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @cinemas.each.with_index do |cinema, index| %>
+                <tr>
+                  <th scope="row">
+                    <font>
+                        <h4>
+                          <%= index + 1 %>
+                        </h4>
+                    </font>
+                  </th>
+                  <td>
+                    <font>
+                        <h4>
+                          <%= cinema.nome %>
+                        </h4>
+                    </font>
+                  </td>
+                  <td>
+                    <font><%= link_to t('buttons.show'), cinema, class: "btn btn-info", role: "button" %></font>
+                  </td>
+                  <td>
+                    <p>
+                      <%= link_to t('buttons.edit'), edit_cinema_path(cinema), class: "btn btn-primary", role: "button" %>
+                    </p>
+                  </td>
+                  <td>
+                    <p>
+                      <%= link_to t('buttons.destroy'), cinema, method: :delete, data: { confirm: t('messages.confirm') }, class: "btn btn-danger", role: "button" %>
+                    </p>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<%= render partial: "/partials/tab_rodape" %>

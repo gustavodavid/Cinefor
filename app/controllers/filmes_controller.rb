@@ -1,37 +1,27 @@
 class FilmesController < ApplicationController
   before_action :set_filme, only: [:show, :edit, :update, :destroy]
+  before_action :set_options_for_select_pessoas, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_admin!
 
   # GET /filmes
   # GET /filmes.json
   def index
     @filmes = Filme.all
-
-    respond_to do |format|
-      format.html
-      format.json {render json: @filmes}
-    end
   end
 
   # GET /filmes/1
   # GET /filmes/1.json
   def show
     @filme = Filme.find(params[:id])
-
-    respond_to do |format|
-      format.html
-      format.json {render json: @filme}
-    end
   end
 
   # GET /filmes/new
   def new
     @filme = Filme.new
-    @select_pessoas = select_pessoas
   end
 
   # GET /filmes/1/edit
   def edit
-    @select_pessoas = select_pessoas
   end
 
   # POST /filmes
@@ -85,7 +75,7 @@ class FilmesController < ApplicationController
       params.require(:filme).permit(:nome, :imdb, :sinopse, :data_lancamento, :classificacao, :hora, :minuto, :trailer, :poster, {:pessoa_ids => []}, {:genero_ids => []})
     end
 
-    def select_pessoas
-      Pessoa.all
+    def set_options_for_select_pessoas
+      @select_pessoas = Pessoa.all
     end
 end

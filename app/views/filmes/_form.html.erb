@@ -1,35 +1,24 @@
 <%= form_for(filme, html: { class: "basic-grey" }) do |f| %>
-  <% if filme.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(filme.errors.count, "error") %> prohibited this filme from being saved:</h2>
 
-      <ul>
-      <% filme.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<h1>Filme</h1>
 
-  <h1>Filme</h1>
+<div class="field">
+  <%= f.label :nome %>
+  <%= f.text_field :nome %>
+</div>
 
-  <div class="field">
-    <%= f.label :nome %>
-    <%= f.text_field :nome %>
+<div class="field">
+  <%= f.label :sinopse %>
+  <%= f.text_area :sinopse %>
+</div>
+
+<div class = "field" >
+  <%= f.label :data_lancamento %>
+
+  <div class = "time" >
+    <%= f.date_select :data_lancamento %>
   </div>
-
-  <div class="field">
-    <%= f.label :sinopse %>
-    <%= f.text_area :sinopse %>
-  </div>
-
-  <div class = "field" >
-    <%= f.label :data_lancamento %>
-
-    <div class = "time" >
-      <%= f.date_select :data_lancamento %>
-    </div>
-  </div>
+</div>
 
 <div class="field">
 
@@ -37,12 +26,16 @@
   <div class="text_field_numerics">
     <%= f.text_field :imdb %>
   </div>
+</div>
 
+<div class="field">
   <%= f.label :classificacao %>
   <div class="text_field_numerics">
     <%= f.text_field :classificacao %>
   </div>
+</div>
 
+<div class="field">
   <%= f.label :hora %>
   <div class="text_field_numerics">
     <%= f.text_field :hora %>
@@ -52,45 +45,61 @@
   <div class="text_field_numerics">
     <%= f.text_field :minuto %>
   </div>
+</div>
 
+<div class="field">
   <%= f.label :trailer %>
   <div class="text_field_characters">
     <%= f.text_field :trailer %>
   </div>
+</div>
 
+<div class="field">
   <%= f.label :poster %>
   <div class="text_field_characters">
     <%= f.text_field :poster %>
   </div>
 </div>
 
-  <h3>Pessoas</h3>
+<h3>Pessoas</h3>
 
-  <div class="field">
-    <%= hidden_field_tag "filme[pessoa_ids][]", nil %>
-    <% Pessoa.all.each do |pessoa| %>
-      <div class="select" >
-        <%= check_box_tag "filme[pessoa_ids][]", pessoa.id, @filme.pessoa_ids.include?(pessoa.id), id: dom_id(pessoa) %>
-        <%= label_tag dom_id(pessoa), pessoa.nome %>
-        <% end %>
-      <div>
-  </div>
+<div class="field">
+  <%= hidden_field_tag "filme[pessoa_ids][]", nil %>
+  <% Pessoa.all.each do |pessoa| %>
+  <div class="select" >
+    <%= check_box_tag "filme[pessoa_ids][]", pessoa.id, @filme.pessoa_ids.include?(pessoa.id), id: dom_id(pessoa) %>
+    <%= label_tag dom_id(pessoa), pessoa.nome %>
+    <% end %>
+    <div>
+    </div>
 
-  <h3>Gêneros</h3>
+    <h3>Gêneros</h3>
 
-  <div class="field">
-    <%= hidden_field_tag "filme[genero_ids][]", nil %>
-    <% Genero.all.each do |genero| %>
+    <div class="field">
+      <%= hidden_field_tag "filme[genero_ids][]", nil %>
+      <% Genero.all.each do |genero| %>
       <div class="select" >
         <%= check_box_tag "filme[genero_ids][]", genero.id, @filme.genero_ids.include?(genero.id), id: dom_id(genero) %>
         <%= label_tag dom_id(genero), genero.nome %>
         <% end %>
-      <div>
-  </div>
+        <div>
+        </div>
 
-  <div class="actions">
-    <br><br>
-    <%= f.submit "Cadastrar Filme", class: "button" %>
-    <%= link_to 'Cancelar', filmes_path, class: "button" %>
-  </div>
-<% end %>
+        <div class="actions">
+          <br><br>
+          <%= f.submit "Cadastrar Filme", class: "button" %>
+          <%= link_to 'Cancelar', filmes_path, class: "button" %>
+        </div>
+
+        <% if filme.errors.any? %>
+        <div id="error_explanation">
+          <h2>Não foi possível criar o filme por um ou mais motivos:</h2>
+
+          <ul>
+            <% filme.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+        <% end %>
+        <% end %>

@@ -1,25 +1,17 @@
 class PessoasController < ApplicationController
   before_action :set_pessoa, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_admin!
 
   # GET /pessoas
   # GET /pessoas.json
   def index
     @pessoas = Pessoa.all
-    respond_to do |format|
-      format.html
-      format.json {render json: @pessoas}
-    end
   end
 
   # GET /pessoas/1
   # GET /pessoas/1.json
   def show
     @pessoa = Pessoa.find(params[:id])
-
-    respond_to do |format|
-      format.html
-      format.json {render json: @pessoa}
-    end
   end
 
   # GET /pessoas/new

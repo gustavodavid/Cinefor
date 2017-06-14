@@ -1,26 +1,16 @@
 class HorariosController < ApplicationController
   before_action :set_horario, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_admin!
   # GET /horarios
   # GET /horarios.json
   def index
     @horarios = Horario.all
-
-    respond_to do |format|
-      format.html
-      format.json {render json: @horarios}
-    end
   end
 
   # GET /horarios/1
   # GET /horarios/1.json
   def show
     @horario = Horario.find(params[:id])
-
-    respond_to do |format|
-      format.html
-      format.json {render json: @horario}
-    end
   end
 
   # GET /horarios/new

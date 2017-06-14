@@ -1,40 +1,29 @@
 class SalasController < ApplicationController
   before_action :set_sala, only: [:show, :edit, :update, :destroy]
+  before_action :set_options_for_select_filme, only: [:new, :edit, :create, :update]
+  before_action :set_options_for_select_cinema, only: [:new, :edit, :create, :update]
+  before_action :set_options_for_select_horario, only: [:new, :edit, :create, :update]
+  before_action :authenticate_admin!
 
   # GET /salas
   # GET /salas.json
   def index
     @salas = Sala.all
-
-    respond_to do |format|
-      format.html
-      format.json {render json: @salas}
-    end
   end
 
   # GET /salas/1
   # GET /salas/1.json
   def show
     @sala = Sala.find(params[:id])
-
-    respond_to do |format|
-      format.html
-      format.json {render json: @sala}
-    end
-
   end
 
   # GET /salas/new
   def new
     @sala = Sala.new
-    @select_cinema = select_cinema
-    @select_filme = select_filme
   end
 
   # GET /salas/1/edit
   def edit
-    @select_cinema = select_cinema
-    @select_filme = select_filme
   end
 
   # POST /salas
@@ -88,11 +77,15 @@ class SalasController < ApplicationController
       params.require(:sala).permit(:tipo, :lingua, :cinema_id, :filme_id, {:horario_ids => []})
     end
 
-    def select_cinema
-      Cinema.all
+    def set_options_for_select_cinema
+      @select_cinema = Cinema.all
     end
 
-    def select_filme
-      Filme.all
+    def set_options_for_select_filme
+      @select_filme = Filme.all
+    end
+
+    def set_options_for_select_horario
+      @select_horario = Horario.all.each
     end
 end

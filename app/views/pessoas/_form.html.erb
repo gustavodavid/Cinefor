@@ -1,15 +1,4 @@
 <%= form_for(pessoa, html: { class: "basic-grey" }) do |f| %>
-  <% if pessoa.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(pessoa.errors.count, "error") %> prohibited this pessoa from being saved:</h2>
-
-      <ul>
-      <% pessoa.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <h1>Pessoa</h1>
 
@@ -27,4 +16,16 @@
     <%= f.submit "Cadastrar Pessoa", class: "button"%>
     <%= link_to 'Cancelar', pessoas_path, class: "button" %>
   </div>
+
+  <% if pessoa.errors.any? %>
+    <div id="error_explanation">
+      <h2>Não foi possível cadastrar a pessoa por um ou mais motivos:</h2>
+
+      <ul>
+      <% pessoa.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 <% end %>

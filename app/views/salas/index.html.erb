@@ -1,37 +1,122 @@
-<%= render partial: "/partials/tab_menu" %>
-<div class= "basic-grey" >
-  <p id="notice"><%= notice %></p>
+<header>
 
-  <h1><%= "#{t('messages.listing')} #{@salas.model_name.human(count: @salas.count) }" %></h1>
+  <nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+      <ul class="nav navbar-nav">
+        <li><%= link_to "Home", home_index_path %></li>
+        <li><%= link_to "Filmes", filmes_path %></li>
+        <li><%= link_to "Cinemas", cinemas_path %></li>
+        <li class="active"><%= link_to "Salas", salas_path %></li>
+        <li><%= link_to "Pessoas", pessoas_path %></li>
+        <li><%= link_to "Gêneros", generos_path %></li>
+        <li><%= link_to "Horários", horarios_path %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Sair", destroy_admin_session_path, method: :delete, class: ""%></li>
+      </ul>
+    </div>
+  </nav>
+
+</header>
 
 
-  <table>
-    <thead>
-      <tr>
-        <th><%= @salas.human_attribute_name("tipo") %></th>
-        <th><%= @salas.human_attribute_name("lingua") %></th>
-        <th><%= @salas.human_attribute_name("cinema") %></th>
-        <th><%= @salas.human_attribute_name("filme") %></th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
+  <section>
 
-    <tbody>
-      <% @salas.each do |sala| %>
-        <tr>
-          <td><%= sala.tipo %></td>
-          <td><%= sala.lingua %></td>
-          <td><%= sala.cinema.nome %></td>
-          <td><%= sala.filme.nome %></td>
-          <td><%= link_to t('buttons.show'), sala %></td>
-          <td><%= link_to t('buttons.edit'), edit_sala_path(sala) %></td>
-          <td><%= link_to t('buttons.destroy'), sala, method: :delete, data: { confirm: t('messages.confirm') } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+    <div class="container">
+      <div class="panel panel-default">
 
-  <br>
+        <div class="panel-heading">
+        <!-- Título do painel -->
+          <h3 class="panel-title">
+            <p>
+              <font>Lista de Salas</font>
 
-  <%= link_to t('buttons.new'), new_sala_path %>
-</div>
+              <a>
+                <%= link_to t('buttons.new'), new_sala_path, class: "btn btn-primary", role: "button", style: "float: right" %>
+              </a>
+          </p>
+          </h3>
+        </div>
+
+      <div class="panel-body">
+      <!-- Conteúdo do painel -->
+
+        <div class="panel panel-default">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>
+                  <font>#</font>
+                </th>
+                <th>
+                  <font><%= @salas.human_attribute_name("tipo") %></font>
+                </th>
+                <th>
+                  <font><%= @salas.human_attribute_name("lingua") %></font>
+                </th>
+                <th>
+                  <font><%= @salas.human_attribute_name("filme") %></font>
+                </th>
+                <th>
+                  <font><%= @salas.human_attribute_name("cinema") %></font>
+                </th>
+                <th>
+                  <font>Exibir</font>
+                </th>
+                <th>
+                  <font>Editar</font>
+                </th>
+                <th>
+                  <font>Excluir</font>
+                </th>
+                <th colspan="8"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @salas.each.with_index do |sala, index| %>
+              <tr>
+                <th scope="row">
+                  <font>
+                    <%= index+1 %>
+                  </font>
+                </th>
+                <td>
+                  <font><%= sala.tipo %></font>
+                </td>
+                <td>
+                  <font><%= sala.lingua %></font>
+                </td>
+                <td>
+                  <font><%= sala.filme.nome %></font>
+                </td>
+                <td>
+                  <font><%= sala.cinema.nome %></font>
+                </td>
+                <td>
+                  <font><%= link_to t('buttons.show'), sala, class: "btn btn-info", role: "button" %></font>
+                </td>
+                <td>
+                  <p>
+                    <%= link_to t('buttons.edit'), edit_sala_path(sala), class: "btn btn-primary", role: "button" %>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    <%= link_to t('buttons.destroy'), sala, method: :delete, data: { confirm: t('messages.confirm') }, class: "btn btn-danger", role: "button" %>
+                  </p>
+                </td>
+                <td colspan="7"></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+    </div>
+     </div>
+
+  </section>
+
+<%= render partial: "/partials/tab_rodape" %>

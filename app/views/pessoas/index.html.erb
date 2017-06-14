@@ -1,33 +1,104 @@
-<%= render partial: "/partials/tab_menu" %>
-<div class= "basic-grey" >
-  <p id="notice"><%= notice %></p>
+<header>
 
-  <h1><%= "#{t('messages.listing')} #{@pessoas.model_name.human(count: @pessoas.count) }" %></h1>
+  <nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+      <ul class="nav navbar-nav">
+        <li><%= link_to "Home", home_index_path %></li>
+        <li><%= link_to "Filmes", filmes_path %></li>
+        <li><%= link_to "Cinemas", cinemas_path %></li>
+        <li><%= link_to "Salas", salas_path %></li>
+        <li class="active"><%= link_to "Pessoas", pessoas_path %></li>
+        <li><%= link_to "Gêneros", generos_path %></li>
+        <li><%= link_to "Horários", horarios_path %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Sair", destroy_admin_session_path, method: :delete, class: ""%></li>
+      </ul>
+    </div>
+  </nav>
 
+</header>
 
-  <table>
-    <thead>
-      <tr>
-        <th><%= @pessoas.human_attribute_name("nome") %></th>
-        <th><%= @pessoas.human_attribute_name("url_foto") %></th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
+<section>
 
-    <tbody>
-      <% @pessoas.each do |pessoa| %>
-        <tr>
-          <td><%= pessoa.nome %></td>
-          <td><%= pessoa.url_foto %></td>
-          <td><%= link_to t('buttons.show'), pessoa %></td>
-          <td><%= link_to t('buttons.edit'), edit_pessoa_path(pessoa) %></td>
-          <td><%= link_to t('buttons.destroy'), pessoa, method: :delete, data: { confirm: t('messages.confirm') } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <div class="container">
+    <div class="panel panel-default">
 
-  <br>
+      <div class="panel-heading">
+      <!-- Título do painel -->
+        <h3 class="panel-title">
+          <p>
+          <font>Lista de Pessoas</font>
+            <%= link_to t('buttons.new'), new_pessoa_path, class: "btn btn-primary", role: "button", style: "float: right" %>
+          </p>
+        </h3>
+      </div>
 
-  <%= link_to t('buttons.new'), new_pessoa_path %>
-</div>
+      <div class="panel-body">
+      <!-- Conteúdo do painel -->
+
+        <div class="panel panel-default">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>
+                  <font>#</font>
+                </th>
+                <th>
+                  <font>
+                    <%= @pessoas.human_attribute_name("nome") %>
+                  </font>
+                </th>
+                <th>
+                  <font>Exibir</font>
+                </th>
+                <th>
+                  <font>Editar</font>
+                </th>
+                <th>
+                  <font>Excluir</font>
+                </th>
+                <th colspan="5"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @pessoas.each.with_index do |pessoa, index| %>
+                <tr>
+                  <th scope="row">
+                    <font>
+                      <h4>
+                        <%= index + 1 %>
+                      </h4>
+                    </font>
+                  </th>
+                  <td>
+                    <font>
+                      <h4>
+                        <%= pessoa.nome %>
+                      </h4>
+                    </font>
+                  </td>
+                  <td>
+                    <%= link_to t('buttons.show'), pessoa, class: "btn btn-info", role: "button" %>
+                  </td>
+                  <td>
+                    <p>
+                      <%= link_to t('buttons.edit'), edit_pessoa_path(pessoa), class: "btn btn-primary", role: "button" %>
+                    </p>
+                  </td>
+                  <td>
+                    <p>
+                      <%= link_to t('buttons.destroy'), pessoa, method: :delete, data: { confirm: t('messages.confirm') }, class: "btn btn-danger", role: "button" %>
+                    </p>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%= render partial: "/partials/tab_rodape" %>

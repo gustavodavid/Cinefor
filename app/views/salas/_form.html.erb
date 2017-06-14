@@ -1,15 +1,4 @@
 <%= form_for(sala, html: { class: "basic-grey" }) do |f| %>
-  <% if sala.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(sala.errors.count, "error") %> prohibited this sala from being saved:</h2>
-
-      <ul>
-      <% sala.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <h1>Sala</h1>
 
@@ -50,4 +39,16 @@
     <%= f.submit "Cadastrar Sala", class: "button" %>
     <%= link_to 'Cancelar', salas_path, class: "button" %>
   </div>
+
+  <% if sala.errors.any? %>
+    <div id="error_explanation">
+      <h2>Não foi possível cadastrar a sala por um ou mais motivos:</h2>
+
+      <ul>
+      <% sala.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 <% end %>
