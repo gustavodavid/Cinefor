@@ -13,7 +13,6 @@ module Cinefor
     # -- all .rb files in that directory are automatically loaded.
 
     config.i18n.default_locale = :"pt-BR"
-    config.serve_static_assets = true
-    
+
   end
 end
