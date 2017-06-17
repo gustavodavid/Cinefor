@@ -14,4 +14,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require_self
+//= require bootstrap
+//= require angular
+//= require leaflet
 //= require_tree .

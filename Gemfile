@@ -5,9 +5,16 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+source 'https://rails-assets.org' do
+  gem 'rails-assets-bootstrap'
+  gem 'rails-assets-angular'
+  gem 'rails-assets-leaflet'
+end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.3'
+# It automatically converts the packaged components into gems that are easily droppable into your asset pipeline and stay up to date.
+gem 'bundler', '>= 1.8.4'
 # Makes running your Rails app easier.
 gem 'rails_12factor', group: :production
 # Rails gem of the Bootstrap based admin theme SB Admin 2
