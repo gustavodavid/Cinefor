@@ -1,39 +1,110 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @cinema.nome %>
-</p>
+<section>
+    <div class="container">
+      <h1>Cinema</h1>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="input-group">
+            <span class="input-group-addon">
+              Nome
+            </span>
+            <input type="text" class="form-control" value="<%= @cinema.nome%>" aria-describedby="basic-addon1" disabled="true">
+          </div>
 
-<p>
-  <strong>Latitude:</strong>
-  <%= @cinema.latitude %>
-</p>
+          <br>
 
-<p>
-  <strong>Longitude:</strong>
-  <%= @cinema.longitude %>
-</p>
+          <div class="form-inline">
 
-<p>
-  <strong>Endereco:</strong>
-  <%= @cinema.endereco %>
-</p>
+            <div class="input-group">
+              <span class="input-group-addon">
+                Latitude
+              </span>
+              <input type="text" class="form-control" value="<%= @cinema.latitude%>" aria-describedby="basic-addon1" disabled="true">
+            </div>
 
-<p>
-  <strong>Bairro:</strong>
-  <%= @cinema.bairro %>
-</p>
+            <div class="input-group">
+              <span class="input-group-addon">
+                Longitude
+              </span>
+              <input type="text" class="form-control" value="<%= @cinema.longitude%>" aria-describedby="basic-addon1" disabled="true">
+            </div>
+          </div>
 
-<p>
-  <strong>Numero:</strong>
-  <%= @cinema.numero %>
-</p>
+          <br>
 
-<p>
-  <strong>Descricao:</strong>
-  <%= @cinema.descricao %>
-</p>
+          <div class="input-group">
+            <span class="input-group-addon">
+              Enredeço
+            </span>
+            <input type="text" class="form-control" value="<%= @cinema.nome%>" aria-describedby="basic-addon1" disabled="true">
+          </div>
 
-<%= link_to 'Edit', edit_cinema_path(@cinema) %> |
-<%= link_to 'Back', cinemas_path %>
+          <br>
+
+          <div class="input-group">
+            <span class="input-group-addon">
+              Bairro
+            </span>
+            <input type="text" class="form-control" value="<%= @cinema.bairro%>" aria-describedby="basic-addon1" disabled="true">
+          </div>
+
+          <br>
+
+          <div class="input-group">
+            <span class="input-group-addon">
+              Número
+            </span>
+            <input type="text" class="form-control" value="<%= @cinema.numero%>" aria-describedby="basic-addon1" disabled="true">
+          </div>
+
+          <br>
+
+          <div class="input-group">
+            <span class="input-group-addon">
+              Descrição
+            </span>
+            <input type="text" class="form-control" value="<%= @cinema.descricao%>" aria-describedby="basic-addon1" disabled="true">
+          </div>
+
+          <br>
+
+          <p>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModalFilmes">
+              Filmes em Cartaz
+            </button>
+            <%= link_to t('buttons.edit'), edit_cinema_path(@cinema), class: "btn btn-primary", role: "button" %>
+            <%= link_to 'Cancelar', cinemas_path, class: "btn btn-default" %>
+          </p>
+
+                <!-- Modal -->
+                <div class="modal fade" id="myModalFilmes" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-body">
+                        <div class="row">
+                          <% @cinema.filmes.each do |filme| %>
+                            <div class= "col-md-3">
+                              <div class="thumbnail">
+                                <div class="select" >
+                                  <p>
+                                    <p align="center">
+                                      <img alt="90%x200" data-src="holder.js/90%x200" style="height: 200px; width: 90%; display: block;" src="<%= filme.poster %>" data-holder-rendered="true">
+                                      <%= filme.nome %>
+                                    </p>
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          <% end %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+        </div>
+      </div>
+    </div>
+</section>
+<%= render partial: "/partials/tab_rodape" %>
