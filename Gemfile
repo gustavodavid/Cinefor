@@ -11,6 +11,8 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-leaflet'
 end
 
+# Rails Bootstrap Forms is a rails form builder that makes it super easy to integrate twitter bootstrap-style forms into your rails application.
+gem 'bootstrap_form'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.3'
 # It automatically converts the packaged components into gems that are easily droppable into your asset pipeline and stay up to date.

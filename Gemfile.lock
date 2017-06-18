@@ -47,6 +47,7 @@ GEM
     arel (7.1.4)
     bcrypt (3.1.11)
     bindex (0.5.0)
+    bootstrap_form (2.7.0)
     bootstrap_sb_admin_base_v2 (0.3.6)
       font-awesome-rails
       jquery-rails
@@ -196,6 +197,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
+  bootstrap_form
   bootstrap_sb_admin_base_v2
   bundler (>= 1.8.4)
   byebug

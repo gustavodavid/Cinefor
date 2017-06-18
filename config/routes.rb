@@ -33,10 +33,11 @@ Rails.application.routes.draw do
 
         resources :filmes, only: [:index, :show]
         resources :cinemas, only: [:index, :show]
+        resources :salas, only: [:index, :show]
 
     end
   end
-  
+
   devise_scope :admins do
    get '/admins/sign_out' => 'devise/sessions#destroy'
   end
