@@ -1,9 +1,26 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Horario:</strong>
-  <%= @horario.horario %>
-</p>
+<section>
+  <div class="container">
+    <h1>Horário</h1>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="input-group">
+          <span class="input-group-addon">
+            Horário
+          </span>
+            <input type="text" class="form-control" value="<%= @horario.horario.to_formatted_s(:time) %>" aria-describedby="basic-addon1" disabled="true">
+        </div>
 
-<%= link_to 'Edit', edit_horario_path(@horario) %> |
-<%= link_to 'Back', horarios_path %>
+        <br>
+
+        <p>
+          <%= link_to t('buttons.edit'), edit_horario_path(@horario), class: "btn btn-primary", role: "button" %>
+          <%= link_to 'Cancelar', horarios_path, class: "btn btn-default" %>
+        </p>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<%= render partial: "/partials/tab_rodape" %>
