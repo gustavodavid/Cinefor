@@ -1,9 +1,25 @@
-<p id="notice"><%= notice %></p>
+<section>
+    <div class="container">
+      <h1>Gênero</h1>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="input-group">
+            <span class="input-group-addon">
+              Nome
+            </span>
+            <input type="text" class="form-control" value="<%= @genero.nome%>" aria-describedby="basic-addon1" disabled="true">
+        </div>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @genero.nome %>
-</p>
+          <br>
 
-<%= link_to 'Edit', edit_genero_path(@genero) %> |
-<%= link_to 'Back', generos_path %>
+          <p>
+            <%= link_to t('buttons.edit'), edit_genero_path(@genero), class: "btn btn-primary", role: "button" %>
+            <%= link_to 'Cancelar', generos_path, class: "btn btn-default" %>
+          </p>
+
+        </div>
+      </div>
+    </div>
+</section>
+
+<%= render partial: "/partials/tab_rodape" %>
