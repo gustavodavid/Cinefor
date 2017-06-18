@@ -86,38 +86,92 @@
 
           <br>
 
-          <h3>Pessoas</h3>
+          <div class="panel panel-default">
+            <div class="panel-body">
 
-          <div class="field">
-            <%= hidden_field_tag "filme[pessoa_ids][]", nil %>
-            <% Pessoa.all.each do |pessoa| %>
-            <div class="select" >
-              <%= check_box_tag "filme[pessoa_ids][]", pessoa.id, @filme.pessoa_ids.include?(pessoa.id), id: dom_id(pessoa) %>
-              <%= label_tag dom_id(pessoa), pessoa.nome %>
-              <% end %>
+              <div class="container">
+                <h3>Pessoas</h3>
+
+                          <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModalPessoas">
+                  Escolher Pessoas
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="myModalPessoas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-body">
+                        <%= hidden_field_tag "filme[pessoa_ids][]", nil %>
+                        <div class="row">
+                          <% Pessoa.all.each do |pessoa| %>
+                              <div class= "col-md-3">
+                                <div class="thumbnail">
+                                  <div class="select" >
+                                    <p>
+                                      <%= check_box_tag "filme[pessoa_ids][]", pessoa.id, @filme.pessoa_ids.include?(pessoa.id), id: dom_id(pessoa) %>
+                                      <p align="center">
+                                        <img alt="70x70" data-src="holder.js/70x70" class="img-circle" style="width: 140px; height: 140px;" src="<%= pessoa.url_foto %>" data-holder-rendered="true">
+                                        <%= label_tag dom_id(pessoa), pessoa.nome %>
+                                      </p>
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                          <% end %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              <h3>Gêneros</h3>
+
+                          <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModalGeneros">
+                  Escolher Gêneros
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="myModalGeneros" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-body">
+                        <%= hidden_field_tag "filme[genero_ids][]", nil %>
+                        <div class="row">
+                          <% Genero.all.each do |genero| %>
+                            <div class= "col-md-3">
+                              <div class="thumbnail">
+                                <div class="select" >
+                                  <%= check_box_tag "filme[genero_ids][]", genero.id, @filme.genero_ids.include?(genero.id), id: dom_id(genero) %>
+                                  <p align="center">
+                                    <%= label_tag dom_id(genero), genero.nome %>
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          <% end %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
-          <h3>Gêneros</h3>
+          <div class="panel panel-default">
+            <div class="panel-body">
 
-          <div class="field">
-            <%= hidden_field_tag "filme[genero_ids][]", nil %>
-            <% Genero.all.each do |genero| %>
-            <div class="select" >
-              <%= check_box_tag "filme[genero_ids][]", genero.id, @filme.genero_ids.include?(genero.id), id: dom_id(genero) %>
-              <%= label_tag dom_id(genero), genero.nome %>
-              <% end %>
+              <div class="actions">
+                <%- if !filme.nome.nil? %>
+                  <%= f.submit "Editar Filme", class: "btn btn-primary" %>
+                <% else %>
+                  <%= f.submit "Cadastrar Filme", class: "btn btn-primary" %>
+                <% end %>
+                <%= link_to 'Cancelar', filmes_path, class: "btn btn-default" %>
+              </div>
             </div>
-          </div>
-
-          <div class="actions">
-            <br><br>
-            <%- if !filme.nome.nil? %>
-              <%= f.submit "Editar Filme", class: "btn btn-primary" %>
-            <% else %>
-              <%= f.submit "Cadastrar Filme", class: "btn btn-primary" %>
-            <% end %>
-            <%= link_to 'Cancelar', filmes_path, class: "btn btn-default" %>
           </div>
 
           <% if filme.errors.any? %>
