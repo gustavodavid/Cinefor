@@ -63,7 +63,9 @@
             <span class="input-group-addon">
               Descrição
             </span>
-            <input type="text" class="form-control" value="<%= @cinema.descricao%>" aria-describedby="basic-addon1" disabled="true">
+            <textarea class="form-control" rows="5" disabled="true">
+              <%= @cinema.descricao%>
+            </textarea>
           </div>
 
           <br>
