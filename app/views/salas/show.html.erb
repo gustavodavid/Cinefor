@@ -1,24 +1,79 @@
-<p id="notice"><%= notice %></p>
+<section>
+<div class="container">
+  <h1>Sala</h1>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="input-group">
+        <span class="input-group-addon">
+          Tipo
+        </span>
+        <input type="text" class="form-control" value="<%= @sala.tipo%>" aria-describedby="basic-addon1" disabled="true">
+      </div>
 
-<p>
-  <strong>Tipo:</strong>
-  <%= @sala.tipo %>
-</p>
+      <br>
 
-<p>
-  <strong>Lingua:</strong>
-  <%= @sala.lingua %>
-</p>
+      <div class="input-group">
+        <span class="input-group-addon">
+          Língua
+        </span>
+        <input type="text" class="form-control" value="<%= @sala.lingua%>" aria-describedby="basic-addon1" disabled="true">
+      </div>
 
-<p>
-  <strong>Cinema:</strong>
-  <%= @sala.cinema %>
-</p>
+      <br>
 
-<p>
-  <strong>Filme:</strong>
-  <%= @sala.filme %>
-</p>
+      <div class="input-group">
+        <span class="input-group-addon">
+          Cinema
+        </span>
+        <input type="text" class="form-control" value="<%= @sala.cinema.nome%>" aria-describedby="basic-addon1" disabled="true">
+      </div>
 
-<%= link_to 'Edit', edit_sala_path(@sala) %> |
-<%= link_to 'Back', salas_path %>
+      <br>
+
+      <div class="input-group">
+        <span class="input-group-addon">
+          Filme
+        </span>
+        <input type="text" class="form-control" value="<%= @sala.filme.nome%>" aria-describedby="basic-addon1" disabled="true">
+      </div>
+
+      <br>
+
+      <p>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModalHorarios">
+          Horários da Sala
+        </button>
+        <%= link_to t('buttons.edit'), edit_sala_path(@sala), class: "btn btn-primary", role: "button" %>
+        <%= link_to 'Cancelar', salas_path, class: "btn btn-default" %>
+      </p>
+
+      <!-- Modal -->
+      <div class="modal fade" id="myModalHorarios" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="row">
+                <% @sala.horarios.each do |horario| %>
+                  <div class= "col-md-1">
+                    <div class="thumbnail">
+                      <div class="select" >
+                        <p>
+                          <p align="center">
+                            <%= horario.horario.to_formatted_s(:time) %>
+                          </p>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%= render partial: "/partials/tab_rodape" %>
