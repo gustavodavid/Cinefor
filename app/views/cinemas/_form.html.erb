@@ -68,16 +68,48 @@
 
           <br>
 
-          <h3>Filmes</h3>
+          <div class="panel panel-default">
+            <div class="panel-body">
 
-          <div class="field">
-            <%= hidden_field_tag "cinema[filme_ids][]", nil %>
-            <% Filme.all.each do |filme| %>
-              <div class="select" >
-                <%= check_box_tag "cinema[filme_ids][]", filme.id, @cinema.filme_ids.include?(filme.id), id: dom_id(filme) %>
-                <%= label_tag dom_id(filme), filme.nome %>
-                <% end %>
+              <div class="container">
+
+                <h3>Filmes</h3>
+
+                          <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModalFilmes">
+                  Escolher Filmes
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="myModalFilmes" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-body">
+                        <%= hidden_field_tag "cinema[filme_ids][]", nil %>
+                        <div class="row">
+                          <% Filme.all.each do |filme| %>
+                              <div class= "col-md-3">
+                                <div class="thumbnail">
+                                  <div class="select" >
+                                    <p>
+                                      <%= check_box_tag "cinema[filme_ids][]", filme.id, @cinema.filme_ids.include?(filme.id), id: dom_id(filme) %>
+                                      <p align="center">
+                                        <img alt="90%x200" data-src="holder.js/90%x200" style="height: 200px; width: 90%; display: block;" src="<%= filme.poster %>" data-holder-rendered="true">
+
+                                        <%= label_tag dom_id(filme), filme.nome %>
+                                      </p>
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                          <% end %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
+            </div>
           </div>
 
           <div class="actions">
