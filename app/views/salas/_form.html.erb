@@ -36,7 +36,11 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Cadastrar Sala", class: "button" %>
+    <%- if !sala.tipo.nil? %>
+      <%= f.submit "Editar Sala", class: "button" %>
+    <% else %>
+      <%= f.submit "Cadastrar Sala", class: "button" %>
+    <% end %>
     <%= link_to 'Cancelar', salas_path, class: "button" %>
   </div>
 

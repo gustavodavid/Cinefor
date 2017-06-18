@@ -44,7 +44,7 @@ class GenerosController < ApplicationController
   def update
     respond_to do |format|
       if @genero.update(genero_params)
-        format.html { redirect_to @genero, notice: 'Genero was successfully updated.' }
+        format.html { redirect_to generos_path, notice: 'Genero was successfully updated.' }
         format.json { render :show, status: :ok, location: @genero }
       else
         format.html { render :edit }

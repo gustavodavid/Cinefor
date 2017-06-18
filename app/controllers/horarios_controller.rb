@@ -43,7 +43,7 @@ class HorariosController < ApplicationController
   def update
     respond_to do |format|
       if @horario.update(horario_params)
-        format.html { redirect_to @horario, notice: 'Horario was successfully updated.' }
+        format.html { redirect_to horarios_path, notice: 'Horario was successfully updated.' }
         format.json { render :show, status: :ok, location: @horario }
       else
         format.html { render :edit }

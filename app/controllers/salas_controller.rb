@@ -47,7 +47,7 @@ class SalasController < ApplicationController
   def update
     respond_to do |format|
       if @sala.update(sala_params)
-        format.html { redirect_to @sala, notice: 'Sala was successfully updated.' }
+        format.html { redirect_to salas_path, notice: 'Sala was successfully updated.' }
         format.json { render :show, status: :ok, location: @sala }
       else
         format.html { render :edit }

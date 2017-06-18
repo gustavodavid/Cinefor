@@ -87,7 +87,11 @@
 
         <div class="actions">
           <br><br>
-          <%= f.submit "Cadastrar Filme", class: "button" %>
+          <%- if !filme.nome.nil? %>
+            <%= f.submit "Editar Filme", class: "button" %>
+          <% else %>
+            <%= f.submit "Cadastrar Filme", class: "button" %>
+          <% end %>
           <%= link_to 'Cancelar', filmes_path, class: "button" %>
         </div>
 

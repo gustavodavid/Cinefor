@@ -13,7 +13,11 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Cadastrar Pessoa", class: "button"%>
+    <%- if !pessoa.nome.nil? %>
+      <%= f.submit "Editar Pessoa", class: "button" %>
+    <% else %>
+      <%= f.submit "Cadastrar Pessoa", class: "button" %>
+    <% end %>
     <%= link_to 'Cancelar', pessoas_path, class: "button" %>
   </div>
 

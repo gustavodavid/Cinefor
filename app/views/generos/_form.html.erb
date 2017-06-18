@@ -9,7 +9,11 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Cadastrar Gênero", class: "button" %>
+    <%- if !genero.nome.nil? %>
+      <%= f.submit "Editar Gênero", class: "button" %>
+    <% else %>
+      <%= f.submit "Cadastrar Gênero", class: "button" %>
+    <% end %>
     <%= link_to 'Cancelar', generos_path, class: "button" %>
   </div>
 

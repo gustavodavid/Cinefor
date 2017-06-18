@@ -11,7 +11,11 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Cadastrar Horário", class: "button" %>
+    <%- if !horario.horario.nil? %>
+      <%= f.submit "Editar Horário", class: "button" %>
+    <% else %>
+      <%= f.submit "Cadastrar Horário", class: "button" %>
+    <% end %>
     <%= link_to 'Cancelar', horarios_path, class: "button" %>
   </div>
 

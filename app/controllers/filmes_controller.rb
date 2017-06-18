@@ -45,7 +45,7 @@ class FilmesController < ApplicationController
   def update
     respond_to do |format|
       if @filme.update(filme_params)
-        format.html { redirect_to @filme, notice: 'Filme was successfully updated.' }
+        format.html { redirect_to filmes_path, notice: 'Filme was successfully updated.' }
         format.json { render :show, status: :ok, location: @filme }
       else
         format.html { render :edit }

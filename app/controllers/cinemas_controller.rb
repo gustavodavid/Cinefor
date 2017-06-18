@@ -30,7 +30,7 @@ class CinemasController < ApplicationController
 
     respond_to do |format|
       if @cinema.save
-        format.html { redirect_to @cinema, notice: 'Cinema was successfully created.' }
+        format.html { redirect_to cinemas_path, notice: 'Cinema was successfully created.' }
         format.json { render :show, status: :created, location: @cinema }
       else
         format.html { render :new }

@@ -44,7 +44,7 @@ class PessoasController < ApplicationController
   def update
     respond_to do |format|
       if @pessoa.update(pessoa_params)
-        format.html { redirect_to @pessoa, notice: 'Pessoa was successfully updated.' }
+        format.html { redirect_to pessoas_path, notice: 'Pessoa was successfully updated.' }
         format.json { render :show, status: :ok, location: @pessoa }
       else
         format.html { render :edit }
