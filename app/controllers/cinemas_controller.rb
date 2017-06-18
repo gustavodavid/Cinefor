@@ -44,7 +44,7 @@ class CinemasController < ApplicationController
   def update
     respond_to do |format|
       if @cinema.update(cinema_params)
-        format.html { redirect_to @cinema, notice: 'Cinema was successfully updated.' }
+        format.html { redirect_to cinemas_path, notice: 'Cinema was successfully updated.' }
         format.json { render :show, status: :ok, location: @cinema }
       else
         format.html { render :edit }

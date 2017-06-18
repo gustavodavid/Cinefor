@@ -30,7 +30,7 @@ class GenerosController < ApplicationController
 
     respond_to do |format|
       if @genero.save
-        format.html { redirect_to @genero, notice: 'Genero was successfully created.' }
+        format.html { redirect_to generos_path, notice: 'Genero was successfully created.' }
         format.json { render :show, status: :created, location: @genero }
       else
         format.html { render :new }

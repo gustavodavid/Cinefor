@@ -33,7 +33,7 @@ class SalasController < ApplicationController
 
     respond_to do |format|
       if @sala.save
-        format.html { redirect_to @sala, notice: 'Sala was successfully created.' }
+        format.html { redirect_to salas_path, notice: 'Sala was successfully created.' }
         format.json { render :show, status: :created, location: @sala }
       else
         format.html { render :new }

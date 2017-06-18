@@ -30,7 +30,7 @@ class PessoasController < ApplicationController
 
     respond_to do |format|
       if @pessoa.save
-        format.html { redirect_to @pessoa, notice: 'Pessoa was successfully created.' }
+        format.html { redirect_to pessoas_path, notice: 'Pessoa was successfully created.' }
         format.json { render :show, status: :created, location: @pessoa }
       else
         format.html { render :new }

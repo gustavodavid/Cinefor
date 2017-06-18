@@ -10,6 +10,6 @@ class Filme < ApplicationRecord
   validates :classificacao, presence: true
   validates :hora, presence: true, numericality: true
   validates :minuto, presence: true, numericality: true
-  validates :trailer, presence: true
-  validates :poster, presence: true
+  validates :trailer, presence: false
+  validates :poster, presence: false
 end

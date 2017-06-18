@@ -29,7 +29,7 @@ class HorariosController < ApplicationController
 
     respond_to do |format|
       if @horario.save
-        format.html { redirect_to @horario, notice: 'Horario was successfully created.' }
+        format.html { redirect_to horarios_path, notice: 'Horario was successfully created.' }
         format.json { render :show, status: :created, location: @horario }
       else
         format.html { render :new }
