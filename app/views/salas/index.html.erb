@@ -77,23 +77,43 @@
               <tr>
                 <th scope="row">
                   <font>
-                    <%= index+1 %>
+                    <h4>
+                      <%= index + 1 %>
+                    </h4>
                   </font>
                 </th>
                 <td>
-                  <font><%= sala.tipo %></font>
+                  <font>
+                    <h4>
+                      <%= sala.tipo %>
+                    </h4>
+                  </font>
                 </td>
                 <td>
-                  <font><%= sala.lingua %></font>
+                  <font>
+                    <h4>
+                      <%= sala.lingua %>
+                    </h4>
+                  </font>
                 </td>
                 <td>
-                  <font><%= sala.filme.nome %></font>
+                  <font>
+                    <h4>
+                      <%= sala.filme.nome %>
+                    <h4>
+                  </font>
                 </td>
                 <td>
-                  <font><%= sala.cinema.nome %></font>
+                  <font>
+                    <h4>
+                      <%= sala.cinema.nome %>
+                    <h4>
+                  </font>
                 </td>
                 <td>
-                  <font><%= link_to t('buttons.show'), sala, class: "btn btn-info", role: "button" %></font>
+                  <p>
+                    <%= link_to t('buttons.show'), sala, class: "btn btn-info", role: "button" %>
+                  </p>
                 </td>
                 <td>
                   <p>

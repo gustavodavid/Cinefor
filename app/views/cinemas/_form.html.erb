@@ -1,79 +1,107 @@
-<%= form_for(cinema, html: { class: "basic-grey" }) do |f| %>
+<%= form_for(cinema, html: { class: "form-horizontal" }) do |f| %>
 
-  <h1>Cinema</h1>
+  <div class="container">
+    <h1>Cinema</h1>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="input-group">
+          <span class="input-group-addon">
+            <%= f.label :nome %>
+          </span>
+          <%= f.text_field :nome , class: "form-control", type:"text", placeholder: "Nome"%>
+        </div>
 
-  <div class="field">
-    <%= f.label :nome %>
-    <%= f.text_field :nome %>
-  </div>
+        <br>
 
-<div class="field">
+        <div class="form-inline">
 
-  <%= f.label :latitude %>
-  <div class="text_field_numerics">
-    <%= f.text_field :latitude %>
-  </div>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <%= f.label :latitude %>
+            </span>
+            <%= f.text_field :latitude , class: "form-control", type:"text", placeholder: "Latitude"%>
+          </div>
 
-  <%= f.label :longitude %>
-  <div class="text_field_numerics">
-    <%= f.text_field :longitude %>
-  </div>
-</div>
-  <div class="field">
-    <%= f.label :endereco %>
-    <%= f.text_field :endereco %>
-  </div>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <%= f.label :longitude %>
+            </span>
+            <%= f.text_field :longitude , class: "form-control", type:"text", placeholder: "Longitude"%>
+          </div>
+        </div>
 
-  <div class="field">
-    <%= f.label :bairro %>
-    <%= f.text_field :bairro %>
-  </div>
+        <br>
 
-  <div class="field">
-    <%= f.label :numero %>
-    <div class="text_field_numerics">
-      <%= f.text_field :numero %>
-    </div>
-  </div>
+        <div class="input-group">
+          <span class="input-group-addon">
+            <%= f.label :endereco %>
+          </span>
+          <%= f.text_field :endereco , class: "form-control", type:"text", placeholder: "Endereço"%>
+        </div>
 
-  <div class="field">
-    <%= f.label :descricao %>
+        <br>
 
-    <div class="textarea">
-      <%= f.text_area :descricao %>
-    </div>
-  </div>
+        <div class="input-group">
+          <span class="input-group-addon">
+            <%= f.label :bairro %>
+          </span>
+          <%= f.text_field :bairro , class: "form-control", type:"text", placeholder: "Bairro"%>
+        </div>
 
-  <h3>Filmes</h3>
+        <br>
 
-  <div class="field">
-    <%= hidden_field_tag "cinema[filme_ids][]", nil %>
-    <% Filme.all.each do |filme| %>
-      <div class="select" >
-        <%= check_box_tag "cinema[filme_ids][]", filme.id, @cinema.filme_ids.include?(filme.id), id: dom_id(filme) %>
-        <%= label_tag dom_id(filme), filme.nome %>
+        <div class="input-group">
+          <span class="input-group-addon">
+            <%= f.label :numero %>
+          </span>
+          <%= f.text_field :numero, class: "form-control",type:"text", placeholder: "Número do endereço"%>
+        </div>
+
+        <br>
+
+        <div class="input-group">
+          <span class="input-group-addon">
+            <%= f.label :descricao %>
+          </span>
+          <%= f.text_area :descricao, class: "form-control", type:"text", placeholder: "Descrição"%>
+        </div>
+
+        <br>
+
+        <h3>Filmes</h3>
+
+        <div class="field">
+          <%= hidden_field_tag "cinema[filme_ids][]", nil %>
+          <% Filme.all.each do |filme| %>
+            <div class="select" >
+              <%= check_box_tag "cinema[filme_ids][]", filme.id, @cinema.filme_ids.include?(filme.id), id: dom_id(filme) %>
+              <%= label_tag dom_id(filme), filme.nome %>
+              <% end %>
+            </div>
+        </div>
+
+        <div class="actions">
+          <%- if !cinema.nome.nil? %>
+            <%= f.submit "Editar Cinema", class: "btn btn-primary" %>
+          <% else %>
+            <%= f.submit "Cadastrar Cinema", class: "btn btn-primary" %>
+          <% end %>
+          <%= link_to 'Cancelar', cinemas_path, class: "btn btn-default" %>
+        </div>
+        <% if cinema.errors.any? %>
+          <div id="error_explanation">
+            <h2>Não foi possível salvar o cinema por um ou mais motivos:</h2>
+
+            <ul>
+            <% cinema.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
         <% end %>
-      <div>
-  </div>
-
-  <div class="actions">
-    <%- if !cinema.nome.nil? %>
-      <%= f.submit "Editar Cinema", class: "button" %>
-    <% else %>
-      <%= f.submit "Cadastrar Cinema", class: "button" %>
-    <% end %>
-    <%= link_to 'Cancelar', cinemas_path, class: "button" %>
-  </div>
-  <% if cinema.errors.any? %>
-    <div id="error_explanation">
-      <h2>Não foi possível salvar o cinema por um ou mais motivos:</h2>
-
-      <ul>
-      <% cinema.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+      </div>
     </div>
-  <% end %>
-
+  </div>
 <% end %>
+
+<%= render partial: "/partials/tab_rodape" %>

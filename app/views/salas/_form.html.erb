@@ -1,58 +1,80 @@
-<%= form_for(sala, html: { class: "basic-grey" }) do |f| %>
+<section>
+  <%= form_for(sala, html: { class: "form-horizontal" }) do |f| %>
+    <div class="container">
+      <h1>Horário</h1>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="input-group">
+            <span class="input-group-addon">
+              <%= f.label :tipo %>
+            </span>
+            <%= f.text_field :tipo , class: "form-control", type:"text", placeholder: "Tipo"%>
+          </div>
 
-  <h1>Sala</h1>
+          <br>
 
-  <div class="field">
-    <%= f.label :tipo %>
-    <%= f.text_field :tipo %>
-  </div>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <%= f.label :lingua %>
+            </span>
+            <%= f.text_field :lingua , class: "form-control", type:"text", placeholder: "Tipo"%>
+          </div>
 
-  <div class="field">
-    <%= f.label :lingua %>
-    <%= f.text_field :lingua %>
-  </div>
+          <br>
 
-  <div class="field">
-    <%= f.label :cinema_id %>
-    <%= collection_select(:sala, :cinema_id, @select_cinema, :id, :nome) %>
-  </div>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <%= f.label :cinema_id %>
+            </span>
+            <%= collection_select(:sala, :cinema_id, @select_cinema, :id, :nome) %>
+          </div>
 
-  <div class="field">
-    <%= f.label :filme_id %>
+          <br>
 
-    <%= collection_select(:sala, :filme_id, @select_filme, :id, :nome) %>
-  </div>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <%= f.label :filme_id %>
+            </span>
+            <%= collection_select(:sala, :filme_id, @select_filme, :id, :nome) %>
+          </div>
 
-  <h3>Horários</h3>
+          <br>
 
-  <div class="field">
-    <%= hidden_field_tag "sala[horario_ids][]", nil %>
-    <% Horario.all.each do |horario| %>
-      <div class="select" >
-        <%= check_box_tag "sala[horario_ids][]", horario.id, @sala.horario_ids.include?(horario.id), id: dom_id(horario) %>
-        <%= label_tag dom_id(horario), horario.horario.to_formatted_s(:time) %>
-        <% end %>
-      <div>
-  </div>
+          <h3>Horários</h3>
 
-  <div class="actions">
-    <%- if !sala.tipo.nil? %>
-      <%= f.submit "Editar Sala", class: "button" %>
-    <% else %>
-      <%= f.submit "Cadastrar Sala", class: "button" %>
-    <% end %>
-    <%= link_to 'Cancelar', salas_path, class: "button" %>
-  </div>
+          <div class="field">
+            <%= hidden_field_tag "sala[horario_ids][]", nil %>
+            <% Horario.all.each do |horario| %>
+              <div class="select" >
+                <%= check_box_tag "sala[horario_ids][]", horario.id, @sala.horario_ids.include?(horario.id), id: dom_id(horario) %>
+                <%= label_tag dom_id(horario), horario.horario.to_formatted_s(:time) %>
+                <% end %>
+              <div>
+          </div>
 
-  <% if sala.errors.any? %>
-    <div id="error_explanation">
-      <h2>Não foi possível cadastrar a sala por um ou mais motivos:</h2>
+          <div class="actions">
+            <%- if !sala.tipo.nil? %>
+              <%= f.submit "Editar Sala", class: "btn btn-primary" %>
+            <% else %>
+              <%= f.submit "Cadastrar Sala", class: "btn btn-primary" %>
+            <% end %>
+            <%= link_to 'Cancelar', salas_path, class: "btn btn-default" %>
+          </div>
 
-      <ul>
-      <% sala.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+          <% if sala.errors.any? %>
+            <div id="error_explanation">
+              <h2>Não foi possível cadastrar a sala por um ou mais motivos:</h2>
+              <ul>
+              <% sala.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
   <% end %>
-<% end %>
+</section>
+
+<%= render partial: "/partials/tab_rodape" %>

@@ -1,31 +1,42 @@
+<section>
+  <%= form_for(genero, html: { class: "form-horizontal" }) do |f| %>
+    <div class="container">
+      <h1>Gênero</h1>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="input-group">
+            <span class="input-group-addon">
+              <%= f.label :nome %>
+            </span>
+            <%= f.text_field :nome , class: "form-control", type:"text", placeholder: "Nome"%>
+          </div>
 
-<%= form_for(genero, html: { class: "basic-grey" }) do |f| %>
+          <br>
+          
+          <div class="actions">
+            <%- if !genero.nome.nil? %>
+              <%= f.submit "Editar Gênero", class: "btn btn-primary" %>
+            <% else %>
+              <%= f.submit "Cadastrar Gênero", class: "btn btn-primary" %>
+            <% end %>
+            <%= link_to 'Cancelar', generos_path, class: "btn btn-default" %>
+          </div>
 
-  <h1>Gênero</h1>
+          <% if genero.errors.any? %>
+            <div id="error_explanation">
+              <h2>Não foi possível salvar o gênero por um ou mais motivos:</h2>
 
-  <div class="field">
-    <%= f.label :nome %>
-    <%= f.text_field :nome %>
-  </div>
-
-  <div class="actions">
-    <%- if !genero.nome.nil? %>
-      <%= f.submit "Editar Gênero", class: "button" %>
-    <% else %>
-      <%= f.submit "Cadastrar Gênero", class: "button" %>
-    <% end %>
-    <%= link_to 'Cancelar', generos_path, class: "button" %>
-  </div>
-
-  <% if genero.errors.any? %>
-    <div id="error_explanation">
-      <h2>Não foi possível salvar o gênero por um ou mais motivos:</h2>
-
-      <ul>
-      <% genero.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+              <ul>
+              <% genero.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
   <% end %>
-<% end %>
+</section>
+
+<%= render partial: "/partials/tab_rodape" %>

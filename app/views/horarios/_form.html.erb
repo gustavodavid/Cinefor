@@ -1,34 +1,42 @@
-<%= form_for(horario, html: { class: "basic-grey" }) do |f| %>
+<section>
+  <%= form_for(horario, html: { class: "form-horizontal" }) do |f| %>
+    <div class="container">
+      <h1>Horário</h1>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="input-group">
+            <span class="input-group-addon">
+              <%= f.label :horario %>
+            </span>
+            <%= f.time_select :horario , class: "form-control", type:"time"%>
+          </div>
 
-  <h1>Horário</h1>
+          <br>
 
-  <div class="field">
-    <%= f.label :horario %>
+          <div class="actions">
+            <%- if !horario.horario.nil? %>
+              <%= f.submit "Editar Horário", class: "btn btn-primary" %>
+            <% else %>
+              <%= f.submit "Cadastrar Horário", class: "btn btn-primary" %>
+            <% end %>
+            <%= link_to 'Cancelar', horarios_path, class: "btn btn-default" %>
+          </div>
 
-    <div class="time">
-      <%= f.time_select :horario %>
-    </div>
-  </div>
+          <% if horario.errors.any? %>
+            <div id="error_explanation">
+              <h2>Não foi possível salvar o horário por um ou mais motivos:</h2>
 
-  <div class="actions">
-    <%- if !horario.horario.nil? %>
-      <%= f.submit "Editar Horário", class: "button" %>
-    <% else %>
-      <%= f.submit "Cadastrar Horário", class: "button" %>
-    <% end %>
-    <%= link_to 'Cancelar', horarios_path, class: "button" %>
-  </div>
-
-  <% if horario.errors.any? %>
-    <div id="error_explanation">
-      <h2>Não foi possível salvar o horário por um ou mais motivos:</h2>
-
-      <ul>
-      <% horario.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+              <ul>
+              <% horario.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
   <% end %>
+</section>
 
-<% end %>
+<%= render partial: "/partials/tab_rodape" %>

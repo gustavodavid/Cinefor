@@ -1,35 +1,51 @@
-<%= form_for(pessoa, html: { class: "basic-grey" }) do |f| %>
+<section>
+  <%= form_for(pessoa, html: { class: "form-horizontal" }) do |f| %>
+    <div class="container">
+      <h1>Pessoa</h1>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="input-group">
+            <span class="input-group-addon">
+              <%= f.label :nome %>
+            </span>
+            <%= f.text_field :nome , class: "form-control", type:"text", placeholder: "Nome"%>
+          </div>
 
-  <h1>Pessoa</h1>
+          <br>
 
-  <div class="field">
-    <%= f.label :nome %>
-    <%= f.text_field :nome %>
-  </div>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <%= f.label :url_foto %>
+            </span>
+            <%= f.text_field :url_foto , class: "form-control", type:"text", placeholder: "Url da foto da pessoa"%>
+          </div>
 
-  <div class="field">
-    <%= f.label :url_foto %>
-    <%= f.text_field :url_foto %>
-  </div>
+          <br>
 
-  <div class="actions">
-    <%- if !pessoa.nome.nil? %>
-      <%= f.submit "Editar Pessoa", class: "button" %>
-    <% else %>
-      <%= f.submit "Cadastrar Pessoa", class: "button" %>
-    <% end %>
-    <%= link_to 'Cancelar', pessoas_path, class: "button" %>
-  </div>
+          <div class="actions">
+            <%- if !pessoa.nome.nil? %>
+              <%= f.submit "Editar Pessoa", class: "btn btn-primary" %>
+            <% else %>
+              <%= f.submit "Cadastrar Pessoa", class: "btn btn-primary" %>
+            <% end %>
+            <%= link_to 'Cancelar', pessoas_path, class: "btn btn-default" %>
+          </div>
 
-  <% if pessoa.errors.any? %>
-    <div id="error_explanation">
-      <h2>Não foi possível cadastrar a pessoa por um ou mais motivos:</h2>
+          <% if pessoa.errors.any? %>
+            <div id="error_explanation">
+              <h2>Não foi possível cadastrar a pessoa por um ou mais motivos:</h2>
 
-      <ul>
-      <% pessoa.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+              <ul>
+              <% pessoa.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
   <% end %>
-<% end %>
+</section>
+
+<%= render partial: "/partials/tab_rodape" %>
