@@ -15,7 +15,7 @@ Filme.create(
     classificacao: '14',
     hora: '2',
     minuto: '16',
-    trailer: 'https://www.youtube.com/watch?v=KvSlvtPnZTo',
+    trailer: 'www.youtube.com/embed/KvSlvtPnZTo',
     poster: 'http://www.intoleravel.com.br/wp-content/uploads/2017/03/f8newtrailer-imagem01.jpg'
   },
   {
@@ -26,7 +26,7 @@ Filme.create(
     classificacao: '12',
     hora: '2',
     minuto: '18',
-    trailer: 'https://www.youtube.com/watch?v=4-i8nTNSQFI',
+    trailer: 'www.youtube.com/embed/4-i8nTNSQFI',
     poster: 'http://br.web.img2.acsta.net/pictures/17/03/01/09/02/078128.jpg'
   },
   {
@@ -37,7 +37,7 @@ Filme.create(
     classificacao: '14',
     hora: '1',
     minuto: '50',
-    trailer: 'https://www.youtube.com/watch?v=dbvnzSq4MZ4',
+    trailer: 'www.youtube.com/embed/dbvnzSq4MZ4',
     poster: 'http://www.ccine10.com.br/wp-content/uploads/2017/04/GOSTOSAS-LINDAS-e-SEXIES-.jpg'
   },
   {
@@ -48,7 +48,7 @@ Filme.create(
     classificacao: 14,
     hora: 1,
     minuto: 44,
-    trailer: 'https://www.youtube.com/watch?v=_b7wMtogvhM',
+    trailer: 'www.youtube.com/embed/_b7wMtogvhM',
     poster: 'http://br.web.img2.acsta.net/pictures/16/12/16/11/46/095264.jpg'
   },
   {
@@ -59,7 +59,7 @@ Filme.create(
     classificacao: '14',
     hora: '1',
     minuto: '40',
-    trailer: 'https://www.youtube.com/watch?v=_b7wMtogvhM',
+    trailer: 'www.youtube.com/embed/rjs--wRk7EQ',
     poster: 'http://br.web.img3.acsta.net/pictures/17/03/22/17/27/498159.jpg'
   },
   {
@@ -70,7 +70,7 @@ Filme.create(
     classificacao: 'livre',
     hora: '1',
     minuto: '37',
-    trailer: 'https://www.youtube.com/watch?v=2crNSBP5sck',
+    trailer: 'www.youtube.com/embed/2crNSBP5sck',
     poster: 'http://br.web.img2.acsta.net/pictures/16/10/18/16/29/576071.jpg'
   },
   {
@@ -81,7 +81,7 @@ Filme.create(
     classificacao: '14',
     hora: '1',
     minuto: '57',
-    trailer: 'https://www.youtube.com/watch?v=vslbpge5r7M',
+    trailer: 'www.youtube.com/embed/vslbpge5r7M',
     poster: 'http://mem.bluefm.com.ar/files/2017/02/2.jpg'
   }
 ]

@@ -1,49 +1,91 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @filme.nome %>
-</p>
+  <section>
 
-<p>
-  <strong>Imdb:</strong>
-  <%= @filme.imdb %>
-</p>
+    <div class="container">
+      <div class="panel panel-default">
 
-<p>
-  <strong>Sinopse:</strong>
-  <%= @filme.sinopse %>
-</p>
+          <div class="panel-body" style="border: 1px solid #ddd">
+            <!-- Conteúdo do painel -->
 
-<p>
-  <strong>Data lancamento:</strong>
-  <%= @filme.data_lancamento %>
-</p>
+            <div class="row">
+              <div class="col-sm-4 col-md-3 col-lg-3" style="width: 33.3333333%">
+                <img alt="Poster" title="Poster" class="img-thumbnail" src="<%= @filme.poster %>" style="width: 275px; height: 350px">
+              </div>
 
-<p>
-  <strong>Classificacao:</strong>
-  <%= @filme.classificacao %>
-</p>
+              <div class="col-sm-8 col-md-9 col-lg-9" style="width: 66.66666666%">
 
-<p>
-  <strong>Hora:</strong>
-  <%= @filme.hora %>
-</p>
+                <a><h2><%= @filme.nome %></h2></a>
 
-<p>
-  <strong>Minuto:</strong>
-  <%= @filme.minuto %>
-</p>
+                <p><%= @filme.sinopse %></p>
 
-<p>
-  <strong>Trailer:</strong>
-  <%= @filme.trailer %>
-</p>
+                <ul>
+                  <li><strong>Lançamento:</strong><span> <%= @filme.data_lancamento %> </span></li>
+                  <li><strong>Imdb:</strong><span> <%= @filme.imdb %> </span></li>
 
-<p>
-  <strong>Poster:</strong>
-  <%= @filme.poster %>
-</p>
+                  <li>
+                    <strong>Gêneros:</strong>
+                    <span>
+                      <% @filme.generos do |genero| %>
+                        <%= genero.nome %>
+                      <% end %>
+                      <%- if @filme.generos.count > 0 %>
+                        <% @filme.generos.each do |genero| %>
+                          <%= genero.nome %>
+                        <% end %>
+                      <% else %>
+                        Não existem gêneros cadastrados.
+                      <% end -%>
 
-  <%= link_to 'Edit', edit_filme_path(@filme) %> |
-  <%= link_to 'Back', filmes_path %>
+                    </span>
+                  </li>
+
+                  <li><strong>Duração:</strong><span> <%= @filme.hora %>h:<%= @filme.minuto %>m </span></li>
+                  <li><strong>Censura:</strong><span> <%= @filme.classificacao %> </span></li>
+                </ul>
+
+                <!--
+                <div class="row">
+                  <div class="col-md-5 col-lg-4">
+                    <table class="table">
+                      <tbody>
+                        <tr>
+
+                          <th>14:20</th><td class="text-right">Legendado - Sala 1</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              -->
+                  <p>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModalTrailer">
+                      Assistir Trailer
+                    </button>
+                    <%= link_to t('buttons.edit'), edit_filme_path(@filme), class: "btn btn-primary", role: "button" %>
+                    <%= link_to 'Cancelar', filmes_path, class: "btn btn-default" %>
+                  </p>
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="myModalTrailer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog modal-lg" role="document">
+                      <div class="modal-content">
+                        <div class="modal-body">
+                          <!-- 16:9 aspect ratio -->
+                          <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="//<%= @filme.trailer%>"  allowfullscreen=""></iframe>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+
+  </section>
+
+  <%= render partial: "/partials/tab_rodape" %>
