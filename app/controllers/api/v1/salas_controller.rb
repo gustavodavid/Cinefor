@@ -3,7 +3,7 @@ class Api::V1::SalasController < ApplicationController
   def index
     @salas = Sala.all
 
-    render json: @salas, root: "data", adapter: :json, status: :ok
+    render json: @salas, root: "data"
   end
 
   # GET /filmes/1

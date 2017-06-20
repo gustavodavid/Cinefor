@@ -3,7 +3,7 @@ class Api::V1::FilmesController < ApplicationController
   def index
     @filmes = Filme.all
 
-    render json: @filmes, root: "data", adapter: :json, status: :ok
+    render json: @filmes, root: "data"
   end
 
   # GET /filmes/1
