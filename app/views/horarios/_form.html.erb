@@ -14,7 +14,7 @@
           <br>
 
           <div class="actions">
-            <%- if !horario.horario.nil? %>
+            <%- if !horario.id.nil? %>
               <%= f.submit "Editar Horário", class: "btn btn-primary" %>
             <% else %>
               <%= f.submit "Cadastrar Horário", class: "btn btn-primary" %>
